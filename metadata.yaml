@@ -247,6 +247,13 @@ spec:
         description: List of maintenance exclusions. A cluster can have up to three
         varType: list(object({ name = string, start_time = string, end_time = string, exclusion_scope = string }))
         defaultValue: []
+      - name: maintenance_disruption_budget
+        description: Configuration for control plane version disruption intervals.
+        varType: |-
+          object({
+              minor_version_disruption_interval = optional(string)
+              patch_version_disruption_interval = optional(string)
+            })
       - name: maintenance_end_time
         description: Time window specified for recurring maintenance operations in RFC3339 format
         varType: string

@@ -141,6 +141,15 @@ variable "maintenance_exclusions" {
   default     = []
 }
 
+variable "maintenance_disruption_budget" {
+  description = "Configuration for control plane version disruption intervals."
+  type = object({
+    minor_version_disruption_interval = optional(string)
+    patch_version_disruption_interval = optional(string)
+  })
+  default = null
+}
+
 variable "maintenance_end_time" {
   type        = string
   description = "Time window specified for recurring maintenance operations in RFC3339 format"

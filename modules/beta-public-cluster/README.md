@@ -229,6 +229,7 @@ Then perform the following commands on the root folder:
 | logging\_service | The logging service that the cluster should write logs to. Available options include logging.googleapis.com, logging.googleapis.com/kubernetes (beta), and none | `string` | `"logging.googleapis.com/kubernetes"` | no |
 | logging\_variant | (Optional) The type of logging agent that is deployed by default for newly created node pools in the cluster. Valid values include DEFAULT and MAX\_THROUGHPUT. | `string` | `null` | no |
 | lustre\_csi\_driver | The status of the Lustre CSI driver addon, which allows the usage of a Lustre instances as volumes | `bool` | `null` | no |
+| maintenance\_disruption\_budget | Configuration for control plane version disruption intervals. | <pre>object({<br>    minor_version_disruption_interval = optional(string)<br>    patch_version_disruption_interval = optional(string)<br>  })</pre> | `null` | no |
 | maintenance\_end\_time | Time window specified for recurring maintenance operations in RFC3339 format | `string` | `""` | no |
 | maintenance\_exclusions | List of maintenance exclusions. A cluster can have up to three | `list(object({ name = string, start_time = string, end_time = string, exclusion_scope = string }))` | `[]` | no |
 | maintenance\_recurrence | Frequency of the recurring maintenance window in RFC5545 format. | `string` | `""` | no |
